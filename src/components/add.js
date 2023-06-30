@@ -1,6 +1,8 @@
 
 
 import { useState} from "react";
+import {db} from '../config/firebase';
+import {collection, addDoc} from 'firebase/firestore';
 
 function AddTransaction (props) {
 
@@ -8,8 +10,24 @@ function AddTransaction (props) {
     const [amount, setAmount] = useState('');
     const [transactionType, setTransactionType] = useState('');
 
-    const add= (()=>{
-        props.add(transactionItem, amount, transactionType);
+    const add= (async()=>{
+
+       // props.add(transactionItem, amount, transactionType);
+
+      
+       try{
+        const docRef = await addDoc(collection(db, "transaction"), {
+            transactionItem:transactionItem,
+            amount:amount,
+            transactionType:transactionType
+    
+           });
+           alert("Added succefully")
+
+
+       } catch (error) {
+
+       }
     })
 
     return (
