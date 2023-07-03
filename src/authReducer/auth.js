@@ -36,14 +36,14 @@ export const authSlice = createSlice({
             
         })
         .catch((error) =>{
-           // console.log(action.payload);
-           // console.log(action.payload);
-           // const errorMessage = error.message;
-            //console.log(errorMessage);
+            console.log(action.payload);
+            console.log(action.payload);
+            const errorMessage = error.message;
+            console.log(errorMessage);
 
         })
     }
 })
 
-export const {signIn, signUp} = authSlice.actions;
+export const {signUp, signIn} = authSlice.actions;
 export default authSlice.reducer;
