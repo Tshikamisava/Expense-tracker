@@ -22,7 +22,7 @@ function Login () {
 
             <input type="passoword" placeholder="Enter password" onChange={(event) => setPassword(event.target.value)} /><br></br><br></br>
 
-            <button onClick={()=> dispatch(signIn(email, password))}>Login</button><br></br>
+            <button onClick={()=>dispatch(signIn(email, password))}>Login</button><br></br>
             <Link to="forgotpassword">Forgot password</Link><br></br>
             <Link to="signUp">Don't have an account : Sign Up</Link>
            

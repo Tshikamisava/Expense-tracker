@@ -17,33 +17,26 @@ export const authSlice = createSlice({
     },
     reducers:{
         signUp:(state, action)=>{
-
             createUserWithEmailAndPassword(auth, action.payload, action.payload)
             .then(()=>{
-                alert("Registered successfully");
-            })
-            .catch((error)=>{
-                console.log(error.message);
+                alert('Registered successfully')
+            }).catch((error)=>{
+              console.log(error.message);
             });
-        }
-    },
-    signIn :(state, action)=>{
-
-        signInWithEmailAndPassword(auth,action.payload,action.payload)
-        .then(() =>{
-        
-            alert("Log in succefully");
-            
+      },
+      signIn: (state, action)=>{
+        signInWithEmailAndPassword(auth, action.payload, action.payload)
+        .then(()=>{
+          alert('Loged in successfully');
         })
-        .catch((error) =>{
-            console.log(action.payload);
-            console.log(action.payload);
-            const errorMessage = error.message;
-            console.log(errorMessage);
-
-        })
+      .catch((error)=>{
+        console.log(action.payload);
+        console.log(action.payload);
+        const errorMessage =error.message;
+        console.log(errorMessage);
+      });
     }
-})
-
-export const {signUp, signIn} = authSlice.actions;
-export default authSlice.reducer;
+      },
+    });
+    export const {signUp, signIn} =authSlice.actions;
+    export default authSlice.reducer
