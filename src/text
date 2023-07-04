@@ -1,15 +1,15 @@
-<BrowserRouter>
+import AddTransaction from "./add"
+import DisplayTransaction from "./displayTransaction"
 
-      <Routes>
+function Home (props) {
+    return(
 
-        <Route  path='/'  element={<Login/>} />
-        
-
-      </Routes>
-      
-     
-      </BrowserRouter>
-     
-      <Home add={add} transactions={transactions}/>
+    <div className="container">
+        <DisplayTransaction transactions={props.transactions}/>
+        <AddTransaction add={props.add}/>
     </div>
-    
+
+    )
+}
+
+export default Home
