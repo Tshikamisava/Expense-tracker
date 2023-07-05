@@ -1,17 +1,19 @@
 import { useEffect } from "react";
-//import {useSelector, useDispatch} from "react-redux"
-//import { fetchData } from "../fireStoreReducers/data";
+import {useSelector, useDispatch} from "react-redux";
+import { fetchData } from "../firestoreReducers/data";
 
 function DisplayTransaction(props) {
-  // const dispatch=useDispatch();
-  //const {data}= useSelector((state)=> state.data);
-  // useEffect(()=>{
-  // dispatch(fetchData());
-  // })
+
+   const dispatch=useDispatch();
+  const {loading, error, data}= useSelector((state)=> state.data);
+
+   useEffect(()=>{
+   dispatch(fetchData());
+   })
 
   return (
     <div style={{ marginTop: "35px" }}>
-      <h4>Histoty of your transaction</h4>
+      <h5>Histoty of your transaction</h5>
       {data.map((data) => (
         <div style={{ display: "flex" }}>
           <div className="list-Item">
@@ -27,7 +29,7 @@ function DisplayTransaction(props) {
               ) : (
                 <div className="incomeIndicator"></div>
               )}
-              <h6>{data.transactionType}</h6>
+             
             </div>
           </div>
           <div style={{ marginLeft: "10%" }}>

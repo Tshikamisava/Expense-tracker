@@ -22,7 +22,7 @@ function Home(props) {
     <div>
       <i
         onClick={logOut}
-        className="bi bi-box-arror-in-right"
+        className="bi bi-box-arrow-in-right"
         style={{ float: "right", fontSize: "40px" }}
       >
         {" "}

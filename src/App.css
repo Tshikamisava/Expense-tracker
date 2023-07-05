@@ -12,7 +12,7 @@ body{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 500px;
+  height: auto;
   align-items: center;
 }
 input{
@@ -29,7 +29,15 @@ select {
   background-color: white;
   margin-top: 15px;
 }
-
+.addBtn{
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: green;
+  margin-left: 15px;
+  margin-top: 15px;
+  color: white;
+}
 button {
 width: 300px;
 height: 30px;

@@ -3,6 +3,8 @@
 import { useState} from "react";
 import {db} from '../config/firebase';
 import {collection, addDoc} from 'firebase/firestore';
+import { addTransaction } from "../firestoreReducers/data";
+import { useDispatch } from "react-redux";
 
 function AddTransaction (props) {
 
@@ -10,29 +12,21 @@ function AddTransaction (props) {
     const [amount, setAmount] = useState('');
     const [transactionType, setTransactionType] = useState('');
 
+    const dispatch = useDispatch();
+
     const add= (async()=>{
 
-       // props.add(transactionItem, amount, transactionType);
-
-      
-       try{
-        const docRef = await addDoc(collection(db, "transaction"), {
-            transactionItem:transactionItem,
-            amount:amount,
-            transactionType:transactionType
-    
-           });
-           alert("Added succefully")
-
-
-       } catch (error) {
-
-       }
+      dispatch(addTransaction({
+        transactionItem:transactionItem,
+        amount:amount,
+        transactionType:transactionType
+      }))
+       
     })
 
     return (
         <div>
-            <h1> Add a new transaction </h1>
+            <h5 style={{paddingTop:"25px"}}> Add a new transaction </h5>
 
             <input type="text" placeholder="Enter item" onChange={(event)=> setTransactionItem(event.target.value)}/><br></br>
             <input type="text" placeholder="Enter amount" onChange={(event)=> setAmount(event.target.value)}/><br></br>
@@ -40,7 +34,7 @@ function AddTransaction (props) {
                 <option>Income</option>
                 <option>Expense</option>
             </select><br></br><br></br>
-            <button onClick= {add}>Add transaction</button>
+            <button onClick= {add} className="addBtn">Add transaction</button>
 
         </div>
     )

@@ -52,7 +52,7 @@ function CurrencyConvert (){
     return (
         <div className="container">
            <div>
-             <h4>Currency converter</h4>
+             <h4 style={{paddingTop:"25px"}}>Currency converter</h4>
 
              <div className="showCurrency">  
                 <h3>{showCurrency}</h3>
@@ -73,7 +73,7 @@ function CurrencyConvert (){
                 </select>{" "}
                 <br></br><br></br>
 
-                <button onClick={currencyConversion}>converter</button>
+                <button onClick={currencyConversion} className="addBtn">Converter</button>
              </div>
            </div>
 

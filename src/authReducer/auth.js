@@ -3,7 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useHistory } from "react-router-dom";
@@ -38,14 +39,21 @@ export const authSlice = createSlice({
           console.log(errorMessage);
         });
     },
-    signingOut:()=>{
-        signOut(auth)
-        .then(()=>{
-           return true;
+    signingOut: () => {
+      signOut(auth)
+        .then(() => {
+          return true;
         })
-        .catch((error)=>{});
-    }
+        .catch((error) => {});
+    },
+    passwordReset: (state, action) => {
+      sendPasswordResetEmail(auth, action.payload)
+        .then(() => {
+          alert("Check your email");
+        })
+        .catch((error) => {});
+    },
   },
 });
-export const { signUp, signIn, signingOut } = authSlice.actions;
+export const { signUp, signIn, signingOut, passwordReset } = authSlice.actions;
 export default authSlice.reducer;
