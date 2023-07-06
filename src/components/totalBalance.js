@@ -1,6 +1,8 @@
 import React from "react";
 
-function TotalBalance() {
+
+function TotalBalance({ totalIncome, totalExpense}) {
+  const balance = totalIncome - totalExpense;
   return (
     <div className="mt-3">
       <h1>TotalBalance</h1>

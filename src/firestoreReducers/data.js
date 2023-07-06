@@ -40,20 +40,21 @@ export const fetchData = () => async (dispatch)=>{
     dispatch(fetchDataStart())
 
     try {
-        const querySnapShot = await getDocs(collection(db, "transaction"));
+        const querySnapShot = await getDocs(collection(db, "transactions"));
         const data = querySnapShot.docs.map((doc)=> ({
             id:doc.id,
             ...doc.data()
         }))
+        dispatch(fetchDataSuccess(data));
     } catch (error) {
-        dispatch(fetchDataFailure(error))
+       // dispatch(fetchDataFailure(error))
     }
 }
 
 export const addTransaction = (data) => async (dispatch)=>{
   
   try {
-    const docRef = await addDoc(collection(db, "transaction"), data);
+    const docRef = await addDoc(collection(db, "transactions"), data);
     dispatch(addDoc(data));
     alert("Added successfully");
   } catch (error) {

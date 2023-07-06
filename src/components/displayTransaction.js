@@ -9,7 +9,7 @@ function DisplayTransaction(props) {
 
    useEffect(()=>{
    dispatch(fetchData());
-   })
+   },[])
 
   return (
     <div style={{ marginTop: "35px" }}>
@@ -29,7 +29,6 @@ function DisplayTransaction(props) {
               ) : (
                 <div className="incomeIndicator"></div>
               )}
-             
             </div>
           </div>
           <div style={{ marginLeft: "10%" }}>
@@ -45,7 +44,9 @@ function DisplayTransaction(props) {
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
               </svg>
+            </div>
 
+            <div data-toggle="modal" data-target="#exampleModal">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -58,8 +59,46 @@ function DisplayTransaction(props) {
               </svg>
             </div>
 
-            <div>
-              
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Update
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" placeholder="Enter Item" style={{width:"400px"}}/>
+                    <input type="text" placeholder="Enter Amount" style={{width:"400px"}}/>
+
+                    <select style={{width:"400px"}}>
+                      <option>Income</option>
+                      <option>Expense</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    
+                    <button type="button" className="addBtn">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

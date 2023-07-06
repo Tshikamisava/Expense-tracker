@@ -1,5 +1,6 @@
 import AddTransaction from "./add";
 import DisplayTransaction from "./displayTransaction";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useHistory } from "react-router-dom";
 import CurrencyConvert from "./currency";
 import { useDispatch } from "react-redux";
@@ -49,7 +50,7 @@ function Home(props) {
                 class="nav-link"
                 id="profile-tab"
                 data-bs-toggle="tab"
-                data-bs-target="#home"
+                data-bs-target="#profile"
                 type="button"
                 role="tab"
                 aria-control="profile"
@@ -67,7 +68,7 @@ function Home(props) {
               arial-aria-labelledby="home-tab"
             >
              <TotalBalance/>
-              <DisplayTransaction transactions={props.transactions} />
+              <DisplayTransaction transaction={props.transactions} />
               <AddTransaction add={props.add} />
             </div>
             <div
