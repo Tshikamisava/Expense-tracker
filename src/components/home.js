@@ -1,7 +1,7 @@
 import AddTransaction from "./add";
 import DisplayTransaction from "./displayTransaction";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import CurrencyConvert from "./currency";
 import { useDispatch } from "react-redux";
 import { signingOut } from "../authReducer/auth";
@@ -56,7 +56,15 @@ function Home(props) {
                 aria-control="profile"
                 aria-selected="false"
               >
-                Currency Converter
+                <Link
+                className="nav-link"
+                to="/currency-converter"
+                role="tab"
+                aria-selected="false"
+              >
+                 Currency Converter
+              </Link>
+               
               </button>
             </i>
           </ul>
